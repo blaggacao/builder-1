@@ -597,7 +597,7 @@ class Block implements BlockOptions {
 	}
 	duplicateBlock() {
 		const store = useStore();
-		store.activeCanvas?.history.pause();
+		store.activeCanvas?.pauseHistory();
 		const blockCopy = getBlockCopy(this);
 		const parentBlock = this.getParentBlock();
 
@@ -619,7 +619,7 @@ class Block implements BlockOptions {
 			if (child) {
 				child.selectBlock();
 			}
-			store.activeCanvas?.history.resume(true);
+			store.activeCanvas?.resumeHistory();
 		});
 	}
 	getPadding() {
